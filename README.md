@@ -23,7 +23,7 @@ implementation details of their graph data set.
 ## Installation
 
 GQLC is written in ES6 and intended to be used with
-[GraphQS.js](https://github.com/graphql/graphql-js) in a Node.js
+[GraphQL.js](https://github.com/graphql/graphql-js) in a Node.js
 environment.
 
 ```sh
@@ -58,8 +58,8 @@ gqlc(implementation)
 
 ## Examples
 
-* [Basic](exampels/basic)
-* [Advanced](exampels/advanced)
+* [Basic](examples/basic)
+* [Advanced](examples/advanced)
 
 ## Usage
 

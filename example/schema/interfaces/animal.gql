@@ -1,4 +1,17 @@
-enum AnimalType { Dog, Cat }
+##
+# Animal types
+#
+
+enum AnimalType {
+  Dog,
+  Cat
+}
+
+##
+# Animal interface implemented
+# by the Pet type
+#
+
 interface Animal {
   gender: Gender!
   name: String!

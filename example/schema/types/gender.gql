@@ -1,3 +1,10 @@
+##
+# Gender type used by the
+# Pet and User types.
+#
+
 enum Gender {
-  Male, Female, Other
+  Male,
+  Female,
+  Other
 }

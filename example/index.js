@@ -31,7 +31,7 @@ export function getUser (opts) {
  * @param {Object} opts
  */
 
-function addUser (opts) {
+export function addUser (opts) {
   return executeAction('addUser', opts)
 }
 
@@ -42,8 +42,19 @@ function addUser (opts) {
  * @param {Object} opts
  */
 
-function modifyUser (opts) {
+export function modifyUser (opts) {
   return executeAction('modifyUser', opts)
+}
+
+/**
+ * Remove a user from the data set.
+ *
+ * @public
+ * @param {Object} opts
+ */
+
+export function removeUser (opts) {
+  return executeAction('removeUser', opts)
 }
 
 /**
@@ -75,7 +86,7 @@ export function getPet (opts) {
  * @param {Object} opts
  */
 
-function addPet (opts) {
+export function addPet (opts) {
   return executeAction('addPet', opts)
 }
 
@@ -86,16 +97,17 @@ function addPet (opts) {
  * @param {Object} opts
  */
 
-function modifyPet (opts) {
+export function modifyPet (opts) {
   return executeAction('modifyPet', opts)
 }
 
+/**
+ * Remove a pet from the data set.
+ *
+ * @public
+ * @param {Object} opts
+ */
 
-addUser({name: 'Tyler', age: 27, gender: 'Male', friends: ['Joseph']})
-.then(result => {
-  console.log(result.data)
-  getUser({name: 'Tyler'})
-  .then(result => console.log(result.data.user))
-  .catch(err => console.error(err.stack || err))
-})
-
+export function removePet (opts) {
+  return executeAction('removePet', opts)
+}

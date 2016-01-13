@@ -1,3 +1,8 @@
+##
+# Person interface implemented
+# by the User type
+#
+
 interface Person {
   gender: Gender!
   name: String!

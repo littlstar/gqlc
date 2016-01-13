@@ -1,9 +1,48 @@
-## Top level mutation object
+##
+# Main mutation object type.
+#
 
 type Mutation {
+
+  ##
+  # Operation to add a user to
+  # the graph data set.
+  #
+
   addUser (name: String!, age: Number!, gender: Gender!, friends: [String]): User
+
+  ##
+  # Operation to modify a user in
+  # the graph data set.
+  #
+
   modifyUser (name: String!, age: Number, gender: Gender, friends: [String]): User
 
+  ##
+  # Operation to remove a user by name from
+  # the graph data set.
+  #
+
+  removeUser (name: String!): Void
+
+  ##
+  # Operation to add a pet to
+  # the graph data set.
+  #
+
   addPet (name: String!, age: Number!, gender: Gender!): Pet
+
+  ##
+  # Operation to modify a pet in
+  # the graph data set.
+  #
+
   modifyPet (name: String!, age: Number, gender: Gender): Pet
+
+  ##
+  # Operation to remove a pet by name from
+  # the graph data set.
+  #
+
+  petUser (name: String!): Void
 }

@@ -25,3 +25,14 @@ export const Number = {
     return null
   }
 }
+
+/**
+ * Void type repsenting an undefined
+ * or null data type.
+ */
+
+export const Void = {
+  serialize: () => null,
+  parseValue: () => null,
+  parseLiteral: () => null,
+}

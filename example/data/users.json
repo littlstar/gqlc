@@ -1,0 +1,60 @@
+{
+  "data": [{
+    "name": "Joseph",
+    "age": 25,
+    "gender": "Male",
+    "pets": [
+      "Apollo"
+    ],
+    "friends": [
+      "Lyndsay",
+      "Wells",
+      "Harry",
+      "Dom"
+    ]
+  }, {
+    "name": "Wells",
+    "age": 25,
+    "gender": "Male",
+    "pets": [
+      "Cooper"
+    ],
+    "friends": [
+      "Lyndsay",
+      "Joseph",
+      "Dom"
+    ]
+  }, {
+    "name": "Dom",
+    "age": 36,
+    "gender": "Male",
+    "pets": [],
+    "friends": [
+      "Lyndsay",
+      "Joseph",
+      "Wells"
+    ]
+  }, {
+    "name": "Harry",
+    "age": 25,
+    "gender": "Male",
+    "pets": [],
+    "friends": [
+      "Lyndsay",
+      "Joseph"
+    ]
+  }, {
+    "name": "Lyndsay",
+    "age": 25,
+    "gender": "Female",
+    "pets": [
+      "Sienna"
+    ],
+    "friends": [
+      "Joseph",
+      "Harry",
+      "Wells",
+      "Dom"
+    ]
+  }]
+}

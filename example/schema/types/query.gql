@@ -1,0 +1,8 @@
+## Top level query object
+type Query {
+  user (name: String, age: Number, gender: Gender): User
+  users (name: String, age: Number, gender: Gender): [User]
+
+  pet (name: String, age: Number, gender: Gender): Pet
+  pets (name: String, age: Number, gender: Gender): [Pet]
+}

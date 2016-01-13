@@ -1,0 +1,72 @@
+##
+# Fetch all users predicated on optional
+# field arguments
+#
+
+query getUsers ($name: String, $age: Number, $gender: Gender, $includePets: Boolean = false) {
+  users (name: $name, age: $age, gender: $gender) {
+    ... userFields
+    pets @include(if: $includePets) {
+      ... petFields
+    }
+  }
+}
+
+##
+# Fetch a user predicated on their name
+#
+
+query getUser ($name: String) {
+  user (name: $name) {
+    ... userFields
+    pets {
+      ... petFields
+    }
+
+    friends {
+      ... userFields
+    }
+  }
+}
+
+##
+# Fetch all pets predicated on optional
+# field arguments
+#
+
+query getPets ($name: String, $age: Number, $gender: Gender, $includeOwner: Boolean = false) {
+  pets (name: $name, age: $age, gender: $gender) {
+    ... petFields
+    owner @include(if: $includeOwner) {
+      ... userFields
+    }
+  }
+}
+
+##
+# Fetch a pet predicated on their name
+#
+
+query getPet ($name: String) {
+  pet (name: $name) {
+    ... petFields
+  }
+}
+
+##
+# General user fields fragment which
+# will include pets if $includePets is true.
+#
+
+fragment userFields on User {
+  name, age, gender
+}
+
+##
+# General pet fields fragment which
+# will include the owner if $includeOwner is true.
+#
+
+fragment petFields on Pet {
+  name, age, gender, type
+}

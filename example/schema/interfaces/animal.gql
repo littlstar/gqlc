@@ -1,0 +1,7 @@
+enum AnimalType { Dog, Cat }
+interface Animal {
+  gender: Gender!
+  name: String!
+  type: AnimalType!
+  age: Number!
+}

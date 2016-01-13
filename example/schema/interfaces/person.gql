@@ -1,0 +1,5 @@
+interface Person {
+  gender: Gender!
+  name: String!
+  age: Number!
+}

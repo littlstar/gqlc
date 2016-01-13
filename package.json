@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "compile": "babel -d lib/ src/",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run compile",
+    "example": "node -e 'require(\"babel-core/register\"); require(\"./example\")'"
   },
   "keywords": [
     "graphql",

@@ -1,0 +1,15 @@
+type User implements Person {
+  friends: [User]
+  gender: Gender!
+  name: String!
+  pets: [Pet]
+  age: Number!
+}
+
+input UserInput {
+  friends: [String]
+  gender: Gender!
+  name: String!
+  pets: [String]
+  age: Number!
+}

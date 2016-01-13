@@ -300,26 +300,32 @@ export class Compiler {
    */
 
   compile (source, {
+    filename = null,
     main = {query: DEFAULT_QUERY_TYPE,
             mutation: DEFAULT_MUTATION_TYPE
            }} = {}) {
 
     const self = this
 
-    if ('string' != typeof source)
-      throw new TypeError("Expecting source to be a string.")
+    if ('string' == typeof source) {
+      source = source.trim()
+    }
+
+    source = new language.Source(source, filename)
 
     return new Promise((resolve, reject) => {
       const interfaces = this.interfaces
       const schema = { query: null, mutatation: null }
       const types = this.types
-      const ast = language.parse(source.trim())
+      const ast = language.parse(source)
 
       // parse ast into parser state
       walk(ast)
 
       // create root query
-      schema.query = new GraphQLObjectType(self.specs[main.query])
+      if (main.query && self.specs[main.query]) {
+        schema.query = new GraphQLObjectType(self.specs[main.query])
+      }
 
       // create root mutation
       if (main.mutation && self.specs[main.mutation]) {
@@ -336,11 +342,11 @@ export class Compiler {
             break
 
           case 'InterfaceTypeDefinition':
-            self._createGraphQLObjectDefinitionFromNode('interface', node)
+            self._createGraphQLObjectTypeDefinitionFromNode('interface', node)
             break
 
           case 'ObjectTypeDefinition':
-            self._createGraphQLObjectDefinitionFromNode('object', node)
+            self._createGraphQLObjectTypeDefinitionFromNode('object', node)
             break
 
           case 'EnumTypeDefinition':
@@ -352,15 +358,15 @@ export class Compiler {
             break
 
           case 'InputObjectTypeDefinition':
-            self._createGraphQLObjectDefinitionFromNode('input', node)
+            self._createGraphQLObjectTypeDefinitionFromNode('input', node)
 
             break
           case 'ScalarTypeDefinition':
-            self._createGraphQLObjectDefinitionFromNode('scalar', node)
+            self._createGraphQLObjectTypeDefinitionFromNode('scalar', node)
             break
 
           case 'TypeExtensionDefinition':
-            self._createGraphQLObjectDefinitionFromNode('object', node.definition, true)
+            self._createGraphQLObjectTypeDefinitionFromNode('object', node.definition, true)
             break
 
           default:
@@ -379,7 +385,7 @@ export class Compiler {
    * @param {Boolean} [extendType = false]
    */
 
-  _createGraphQLObjectDefinitionFromNode (type, node, extendType = false) {
+  _createGraphQLObjectTypeDefinitionFromNode (type, node, extendType = false) {
     const self = this
     const name = node.name.value
     const implementation = this.implementation[name]
@@ -401,6 +407,7 @@ export class Compiler {
     switch (type) {
       case 'interface':
         this.interfaces[name] = new GraphQLInterfaceType(spec)
+        this.types[name] = this.interfaces[name]
         break
 
       case 'object':
@@ -427,12 +434,14 @@ export class Compiler {
 
       case 'input':
         this.types[name] = new GraphQLInputObjectType(spec)
+        this.inputs[name] = this.types[name]
         break
 
       case 'scalar':
         // remove fields from scalar types
         delete spec.fields
         this.types[name] = new GraphQLScalarType(spec)
+        this.scalars[name] = this.types[name]
         break
 
       default:

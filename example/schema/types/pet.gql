@@ -1,0 +1,7 @@
+type Pet implements Animal {
+  gender: Gender!
+  owner: User!
+  name: String!
+  type: AnimalType!
+  age: Number!
+}

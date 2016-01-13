@@ -1,0 +1,21 @@
+{
+  "data": [{
+    "name": "Apollo",
+    "age": 10,
+    "type": "Dog",
+    "gender": "Male",
+    "owner": "Joseph"
+  }, {
+    "name": "Cooper",
+    "age": 2,
+    "type": "Dog",
+    "gender": "Male",
+    "owner": "Wells"
+  }, {
+    "name": "Sienna",
+    "age": 5,
+    "type": "Cat",
+    "gender": "Female",
+    "owner": "Lyndsay"
+  }]
+}

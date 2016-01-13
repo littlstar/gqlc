@@ -2,8 +2,8 @@
 
 GraphQL Schema Compiler
 
-*GraphQLC* (or GQLC) is built on
-[GraphQS.js](https://github.com/graphql/graphql-js) and
+**GraphQLC** (or GQLC) is built on
+[GraphQL.js](https://github.com/graphql/graphql-js) and
 leverages the schema language parser built into GraphQL. GQLC allows users
 to define their schemas using the language defined by the [GraphQL
 Spec](https://facebook.github.io/graphql), bind implementations for

@@ -52,21 +52,3 @@ query getPet ($name: String) {
     ... petFields
   }
 }
-
-##
-# General user fields fragment which
-# will include pets if $includePets is true.
-#
-
-fragment userFields on User {
-  name, age, gender
-}
-
-##
-# General pet fields fragment which
-# will include the owner if $includeOwner is true.
-#
-
-fragment petFields on Pet {
-  name, age, gender, type
-}

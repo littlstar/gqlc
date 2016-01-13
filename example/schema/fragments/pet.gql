@@ -1,0 +1,7 @@
+##
+# General pet fields fragment
+#
+
+fragment petFields on Pet {
+  name, age, gender, type
+}

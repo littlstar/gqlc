@@ -1,6 +1,6 @@
 'use strict'
 
-import { state } from '../state'
+import { types } from '../schema'
 
 /**
  * Person fields.
@@ -21,5 +21,5 @@ export const fields = () => ({
  */
 
 export function resolveType (input) {
-  return state.types.User
+  return types.User
 }

@@ -1,4 +1,9 @@
 ## Top level mutation object
+
 type Mutation {
-  addUser (input: String!): User
+  addUser (name: String!, age: Number!, gender: Gender!, friends: [String]): User
+  modifyUser (name: String!, age: Number, gender: Gender, friends: [String]): User
+
+  addPet (name: String!, age: Number!, gender: Gender!): Pet
+  modifyPet (name: String!, age: Number, gender: Gender): Pet
 }

@@ -1,6 +1,5 @@
 'use strict'
 
-import { state } from '../state'
 import { User } from '../models'
 
 /**

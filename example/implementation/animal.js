@@ -1,6 +1,6 @@
 'use strict'
 
-import { state } from '../state'
+import { types } from '../schema'
 
 /**
  * Animal fields.
@@ -22,5 +22,5 @@ export const fields = () => ({
  */
 
 export function resolveType (input) {
-  return state.types.Pet
+  return types.Pet
 }

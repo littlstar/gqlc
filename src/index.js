@@ -294,12 +294,12 @@ export class Compiler {
    * schema fields.
    *
    * @public
-   * @param {String} source
+   * @param {?(String)} source
    * @param {Object} [opts]
    * @return {Promise}
    */
 
-  compile (source, {
+  compile (source = null, {
     filename = null,
     main = {query: DEFAULT_QUERY_TYPE,
             mutation: DEFAULT_MUTATION_TYPE
@@ -307,20 +307,20 @@ export class Compiler {
 
     const self = this
 
-    if ('string' == typeof source) {
-      source = source.trim()
-    }
-
-    source = new language.Source(source, filename)
-
     return new Promise((resolve, reject) => {
       const interfaces = this.interfaces
       const schema = { query: null, mutatation: null }
       const types = this.types
-      const ast = language.parse(source)
 
-      // parse ast into parser state
-      walk(ast)
+      if ('string' == typeof source) {
+        source = source.trim()
+      }
+
+      // parse new source if given
+      if (source) {
+        source = new language.Source(source, filename)
+        walk(language.parse(source))
+      }
 
       // create root query
       if (main.query && self.specs[main.query]) {

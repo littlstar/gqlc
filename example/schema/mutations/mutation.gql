@@ -1,0 +1,39 @@
+##
+# Adds a user to the data set
+#
+
+mutation addUser ($name: String!, $age: Number!, $gender: Gender!, $friends: [String]) {
+  addUser(name: $name, age: $age, gender: $gender, friends: $friends) {
+    ... userFields
+  }
+}
+
+##
+# Modifies a user in the data set
+#
+
+mutation modifyUser ($name: String!, $age: Number, $gender: Gender, $friends: [String]) {
+  modifyUser(name: $name, age: $age, gender: $gender, friends: $friends) {
+    ... userFields
+  }
+}
+
+##
+# Adds a pet to the data set
+#
+
+mutation addPet ($name: String!, $age: Number!, $gender: Gender!) {
+  addPet(name: $name, age: $age, gender: $gender) {
+    ... petFields
+  }
+}
+
+##
+# Modifies a pet in the data set
+#
+
+mutation modifyPet ($name: String!, $age: Number, $gender: Gender) {
+  modifyPet(name: $name, age: $age, gender: $gender) {
+    ... petFields
+  }
+}

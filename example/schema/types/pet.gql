@@ -1,3 +1,7 @@
+##
+# Pet type object
+#
+
 type Pet implements Animal {
   gender: Gender!
   owner: User!

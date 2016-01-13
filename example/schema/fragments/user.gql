@@ -1,0 +1,7 @@
+##
+# General user fields fragment
+#
+
+fragment userFields on User {
+  name, age, gender
+}

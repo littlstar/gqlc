@@ -1,6 +1,6 @@
 'use strict'
 
-import { executeAction } from './state'
+import { executeAction, types } from './schema'
 
 /**
  * Get all users with options.
@@ -25,6 +25,28 @@ export function getUser (opts) {
 }
 
 /**
+ * Add a user to the data set.
+ *
+ * @public
+ * @param {Object} opts
+ */
+
+function addUser (opts) {
+  return executeAction('addUser', opts)
+}
+
+/**
+ * Modify a user in the data set.
+ *
+ * @public
+ * @param {Object} opts
+ */
+
+function modifyUser (opts) {
+  return executeAction('modifyUser', opts)
+}
+
+/**
  * Get all pets with options.
  *
  * @public
@@ -46,4 +68,34 @@ export function getPet (opts) {
   return executeAction('getPet', opts)
 }
 
-getUsers({includePets: true).then(results => console.log(results.data))
+/**
+ * Add a pet to the data set.
+ *
+ * @public
+ * @param {Object} opts
+ */
+
+function addPet (opts) {
+  return executeAction('addPet', opts)
+}
+
+/**
+ * Modify a pet in the data set.
+ *
+ * @public
+ * @param {Object} opts
+ */
+
+function modifyPet (opts) {
+  return executeAction('modifyPet', opts)
+}
+
+
+addUser({name: 'Tyler', age: 27, gender: 'Male', friends: ['Joseph']})
+.then(result => {
+  console.log(result.data)
+  getUser({name: 'Tyler'})
+  .then(result => console.log(result.data.user))
+  .catch(err => console.error(err.stack || err))
+})
+

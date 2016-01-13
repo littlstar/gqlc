@@ -6,7 +6,9 @@
   "scripts": {
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile",
-    "example": "node -e 'require(\"babel-core/register\"); require(\"./example/test\")'"
+    "examples": "npm run examples/basic && npm run examples/advanced",
+    "examples/basic": "node -e 'require(\"babel-core/register\"); require(\"./examples/basic/main\")'",
+    "examples/advanced": "node -e 'require(\"babel-core/register\"); require(\"./examples/advanced/main\")'"
   },
   "keywords": [
     "graphql",

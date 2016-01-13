@@ -1,0 +1,13 @@
+type User {
+  id: Int!
+  name: String!
+  friends: [User]
+}
+
+type Query {
+  user (id: Int) : User
+}
+
+fragment userFields on User {
+  name, friends { ... userFields }
+}

@@ -9,7 +9,7 @@ import { User, Pet } from '../models'
 export const fields = () => ({
   friends: {
     resolve (user) {
-      return Promise.all(user.friends.map(name => (
+      return Promise.all(user.friends.map((name) => (
         User.findOne({name: name})
       )))
     }
@@ -17,7 +17,7 @@ export const fields = () => ({
 
   pets: {
     resolve (user) {
-      return Promise.all(user.pets.map(name => (
+      return Promise.all(user.pets.map((name) => (
         Pet.findOne({name: name})
       )))
     }

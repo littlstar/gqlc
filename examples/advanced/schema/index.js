@@ -12,7 +12,7 @@ import {
 
 import * as implementation from '../implementation'
 import { graphql } from 'graphql'
-import gqlc from '../../src'
+import gqlc from '../../../src'
 
 /**
  * Read schemas in a given namespace

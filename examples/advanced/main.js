@@ -10,8 +10,8 @@ import {
 
 addUser({name: 'Tyler', age: 27, gender: 'Male', friends: ['Joseph']})
 .then(result => {
-  console.log(result.data)
+  console.log(result)
   return getUser({name: 'Tyler'})
-  .then(result => console.log(result.data.user))
+  .then(result => console.log(result.data))
 })
 .catch(err => console.error(err.stack || err))

@@ -3,8 +3,8 @@
 # field arguments
 #
 
-query getUsers ($name: String, $age: Number, $gender: Gender, $includePets: Boolean = false) {
-  users (name: $name, age: $age, gender: $gender) {
+query getUsers ($age: Number, $gender: Gender, $includePets: Boolean = false) {
+  users (age: $age, gender: $gender) {
     ... userFields
     pets @include(if: $includePets) {
       ... petFields
@@ -16,7 +16,7 @@ query getUsers ($name: String, $age: Number, $gender: Gender, $includePets: Bool
 # Fetch a user predicated on their name
 #
 
-query getUser ($name: String) {
+query getUser ($name: String!) {
   user (name: $name) {
     ... userFields
     pets {
@@ -34,8 +34,8 @@ query getUser ($name: String) {
 # field arguments
 #
 
-query getPets ($name: String, $age: Number, $gender: Gender, $includeOwner: Boolean = false) {
-  pets (name: $name, age: $age, gender: $gender) {
+query getPets ($age: Number, $gender: Gender, $includeOwner: Boolean = false) {
+  pets (age: $age, gender: $gender) {
     ... petFields
     owner @include(if: $includeOwner) {
       ... userFields
@@ -47,7 +47,7 @@ query getPets ($name: String, $age: Number, $gender: Gender, $includeOwner: Bool
 # Fetch a pet predicated on their name
 #
 
-query getPet ($name: String) {
+query getPet ($name: String!) {
   pet (name: $name) {
     ... petFields
   }

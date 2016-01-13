@@ -1,8 +1,30 @@
-## Top level query object
-type Query {
-  user (name: String, age: Number, gender: Gender): User
-  users (name: String, age: Number, gender: Gender): [User]
+##
+# Main query object
+#
 
-  pet (name: String, age: Number, gender: Gender): Pet
-  pets (name: String, age: Number, gender: Gender): [Pet]
+type Query {
+
+  ##
+  # Fetches a user by name
+  #
+
+  user (name: String!): User
+
+  ##
+  # Fetches users by age or gender
+  #
+
+  users (age: Number, gender: Gender): [User]
+
+  ##
+  # Fetches a pet by name or owner name
+  #
+
+  pet (name: String, owner: String): Pet
+
+  ##
+  # Fetches pets by age or gender
+  #
+
+  pets (age: Number, gender: Gender): [Pet]
 }

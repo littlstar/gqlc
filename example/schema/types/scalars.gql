@@ -1,2 +1,11 @@
+##
+# Number type to represent floats or integers
+#
+
 scalar Number
+
+##
+# Void type to represent null or undefined values
+#
+
 scalar Void

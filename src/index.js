@@ -26,6 +26,7 @@ import {
   GraphQLFloat,
   GraphQLList,
   GraphQLInt,
+  GraphQLID
 } from 'graphql'
 
 /**
@@ -100,6 +101,7 @@ export const Types = {
   'String': GraphQLString,
   'Float': GraphQLFloat,
   'Int': GraphQLInt,
+  'ID': GraphQLID
 }
 
 /**

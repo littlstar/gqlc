@@ -4,6 +4,7 @@
   "description": "GraphQL Schema Compiler",
   "main": "lib/index.js",
   "scripts": {
+    "test": "mocha test",
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile",
     "examples": "npm run examples/hello && npm run examples/basic && npm run examples/advanced",
